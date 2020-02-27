@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+</head>
+    
+<style>
+
+#leftIMG {
+    margin-left: 0px;
+    margin-right: auto;
+    width: 150px;
+    height: 0px;
+}
+
+#mainIMG {
+   width: 200px;
+   height: 0px;
+   margin-left: auto;
+   margin-right: auto;
+}
+    
+#rightIMG {
+   margin-left: auto;
+   margin-right: 0px;
+   float: right;
+}
+</style>
+<body style="background-color: beige">
+
+      <div class = "row"> 
+            <div id = "leftIMG"></div>
+            <div id ="mainIMG"></div>
+            <div id = "rightIMG"></div> 
+      </div> 
+      
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      
+     <div class = "buttons">
+        <div id = buttons style = "text-align: center";>
+            <button id = "prev" onclick = "slideshowFunc(this.id)">Previous</button>
+            <button id = "next" onclick = "slideshowFunc(this.id)">Next</button>
+        </div>
+    </div>
+      
+</body>
+    <script>
+         var imgs = [
+         '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Acer_diabolicum_9_%28medium_crop%29.jpg/320px-Acer_diabolicum_9_%28medium_crop%29.jpg" width="300" height="300">',
+             
+         '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Delos_Museum_Mosaik_Dionysos_09.jpg/240px-Delos_Museum_Mosaik_Dionysos_09.jpg" width="300" height="300">',
+         
+         '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/CSIRO_ScienceImage_3881_Five_Antennas_at_Narrabri_-_restoration1.jpg/800px-CSIRO_ScienceImage_3881_Five_Antennas_at_Narrabri_-_restoration1.jpg" width="300" height="300">',
+             
+                    ];
+    var locash = 0;
+        
+    function slideshowFunc(buttonClicked) {
+    var a = document.getElementById("mainIMG");
+
+        if(buttonClicked === "prev") {
+            locash--;
+            if(locash < 0) {
+                locash =2;
+            } else if(locash > 2) {
+                locash = 0;      
+             }
+            a.innerHTML = imgs[locash];
+            
+        } else if(buttonClicked === "next"){
+            locash++;
+            if(locash < 0) {
+                locash =2;
+            } else if(locash > 2) {
+                locash = 0;      
+             }
+            a.innerHTML = imgs[locash];
+        }
+}
+    </script>
+</html>
